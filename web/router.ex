@@ -23,6 +23,8 @@ defmodule Discuss.Router do
 
     post "/topics", TopicController, :create
 
+    get "/topics/:id", TopicController, :show
+
     get "/topics/:id/edit", TopicController, :edit
 
     put "/topics/:id", TopicController, :update

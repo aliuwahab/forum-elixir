@@ -10,17 +10,18 @@
 
     <title>Hello Discuss!</title>
 
-    <!-- Compiled and minified CSS
-#    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    -->
-
-    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://fonts.googleapis.com/icon?family=Material+Icons  "></script>
 
+    <script>
+
+        <%= if @conn.assigns.user do %>
+               window.userToken = "<%= Phoenix.Token.sign(Discuss.Endpoint, "key", @conn.assigns.user.id) %>"
+         <% end %>
+
+    </script>
 </head>
 
 <body>

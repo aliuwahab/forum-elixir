@@ -1,0 +1,22 @@
+<h5><%= @topic.title %></h5>
+
+<div class="input-field">
+   <textarea class="materialize-textarea"></textarea>
+
+    <button class="btn">Add Comment</button>
+
+    <br><br><br>
+    <!-- Inject list of comments return from the websocket here -->
+    <ul class="collection"></ul>
+</div>
+
+
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        window.createSocket(<%= @topic.id %>)
+    })
+</script>

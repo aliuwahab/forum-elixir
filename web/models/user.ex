@@ -1,6 +1,8 @@
 defmodule Discuss.User do
   use Discuss.Web, :model
 
+  @derive {Poison.Encoder, only: [:email]}
+
   schema "users" do
     field :full_name, :string
     field :email, :string
@@ -8,6 +10,7 @@ defmodule Discuss.User do
     field :token, :string
 
     has_many :topics, Discuss.Topic
+    has_many :comments, Discuss.Comment
 
     timestamps()
   end
